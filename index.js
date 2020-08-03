@@ -16,6 +16,7 @@ $(function() {
         fetch(`https://developer.nps.gov/api/v1/parks?limit=${userLimit}&${userInput}=acad&api_key=MfwQqFxPzYw2yEtJ1DLGoJkJ0HrFXgHFaFuckoqO`)
 .then(response => response.json())
 .then(responseJson => { 
+    $("#response").empty()
     for (let i = 0; i < responseJson.data.length; i++) {
         let parkName = responseJson.data[i].name
         let description = responseJson.data[i].description
