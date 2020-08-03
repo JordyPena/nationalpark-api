@@ -13,7 +13,9 @@ $(function() {
         let userInput = $("#userRequest").val();
         console.log(userInput);
 
-        fetch(`https://developer.nps.gov/api/v1/parks?limit=${userLimit}&${userInput}=acad&api_key=MfwQqFxPzYw2yEtJ1DLGoJkJ0HrFXgHFaFuckoqO`)
+       let URL = `https://developer.nps.gov/api/v1/parks?limit=${userLimit}&stateCode=${userInput}&api_key=MfwQqFxPzYw2yEtJ1DLGoJkJ0HrFXgHFaFuckoqO`
+        console.log(URL)
+       fetch(URL)
 .then(response => response.json())
 .then(responseJson => { 
     $("#response").empty()
@@ -29,7 +31,7 @@ $(function() {
             </p>
           
         `)
-        
+        console.log(responseJson.data[i].states)
     }
     console.log(responseJson)
 
